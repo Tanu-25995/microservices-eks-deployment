@@ -1,0 +1,56 @@
+# 🚀 Microservices Deployment on AWS EKS
+
+## 📌 Overview
+End-to-end DevOps project deploying microservices on AWS EKS using Terraform, Jenkins, Docker, Kubernetes, and monitoring with Prometheus & Grafana.
+
+---
+
+## 🧰 Tech Stack
+AWS (EKS, EC2, ECR) • Jenkins • Docker • Kubernetes • Terraform • Prometheus • Grafana
+
+---
+
+## 🏗️ Architecture
+GitHub → Jenkins → Docker → ECR → EKS → Application → Grafana
+
+---
+
+## ⚙️ Setup
+
+```bash
+# Configure AWS
+aws configure
+
+# Create EKS cluster
+terraform init
+terraform plan
+terraform apply
+
+# Connect to cluster
+aws eks update-kubeconfig --region ap-northeast-1 --name your-cluster-name
+
+# Deploy microservices
+kubectl apply -f microservices/kubernetes-manifests
+
+# Install monitoring
+helm install monitoring prometheus-community/kube-prometheus-stack
+
+## 📸 Screenshots
+
+### 🔹 Application  
+![App](screenshots/app.png)
+
+### 🔹 Jenkins Pipeline  
+![Jenkins](screenshots/jenkins-pipeline.png)
+
+### 🔹 Grafana Dashboard  
+![Grafana](screenshots/cluster-cpu-usage.png)
+
+### 🔹 Kubernetes Pods  
+![Pods](screenshots/pods.png)
+
+🎯 Highlights
+Provisioned EKS using Terraform.
+Deployed microservices on Kubernetes.
+Built CI/CD pipeline using Jenkins.
+Implemented monitoring with Prometheus & Grafana.
